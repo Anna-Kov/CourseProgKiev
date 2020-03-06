@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var x = 6, y = 14, z = 4;
+        x += y - x++ * z;
+        document.write(" x += y - x++ * z =" + x + "</br>");
+        // Выражение x += y - x++ * z выполняется как :
+        // 1)x+=y -> x=x+y(х=6+14);
+        // 2)x++ - увеличивает переменную х на единицу
+        // 3)Итого:(6+14)-(6++*4)=-4
+    </script>
+    <script>
+        var x = 6, y = 14, z = 4;
+        z = --x - y * 5;
+        document.write(" z = --x - y * 5 = " + z + "</br>");
+         // Выражение z = --x - y * 5  выполняется как :
+        // 1)x-- - уменьшает переменную х на единицу
+        // 2)Итого:5-14*4=-65
+    </script>
+    <script>
+        var x = 6, y = 14, z = 4;
+        y /= x + 5 % z;
+        document.write(" y /= x + 5 % z = " + y + "</br>");
+         // Выражение y /= x + 5 % z выполняется как :
+        // 1)y/=x -> y=y/x(y=14/6);
+        // 2)5%z - остаток от деления на число
+        // 3)Итого:14 / 6 + (5 % 4) = 14/7=2
+    </script>
+    <script>
+        var x = 6, y = 14, z = 4, c;
+        c = z - x++ + y * 5;
+        document.write("c = z - x++ + y * 5 = " + c + "</br>");
+         // Выражение c = z - x++ + y * 5  выполняется как :
+        // 1)x++ - увеличивает переменную х на единицу
+        // 2)Итого:4-6++ + (14*5)=-2+70=68
+    </script>
+    <script>
+        var x = 6, y = 14, z = 4;
+        x = y - x++ * z;
+        document.write("x = y - x++ * z =" + x + "</br>");
+        // Выражение x = y - x++ * z  выполняется как :
+        // 1)x++ - увеличивает переменную х на единицу
+        // 2)Итого:14 -(6++ * 4)=14-24=-10
+    </script>
+
+
+
+</body>
+
+</html>
