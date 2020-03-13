@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <script>
+        var styles = ["Джаз", "Блюз"];
+        document.write("Начальный массив:" + "<br>");
+        document.write(styles + "<br>");
+        styles.push("Рок-н-ролл");
+        document.write(styles + "<br>");
+        styles[Math.floor((styles.length - 1) / 2)] = "Классика";
+        document.write(styles + "<br>");
+        styles.shift("Джаз", 1);
+        document.write(styles + "<br>");
+        styles.unshift("Рэп", "Регги");
+        document.write(styles + "<br>");
+
+    </script>
+
+    <script>
+       
+        function map(fn, array) {
+            var array2 = [];
+            for (var i = 0; i < array.length; i++) {
+                array2[i] = fn(array[i]);
+            }
+            return array2;
+        }
+           
+
+    </script>
+
+    <script>
+        var age = prompt("Вам исполнилось 18?");
+        function checkAge(age) {
+            (age > 18) ? (true) : (confirm('Родители разрешили?'));
+        }
+        checkAge(age);
+    </script>
+
+</body>
+
+</html>
