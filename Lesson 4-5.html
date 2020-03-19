@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var doc = {
+            header: "Заголовок 1",
+            body: "Текст",
+            footer: "Все права защищены",
+            data: "март 2020 года",
+            application: {
+                header: "Заголовок 2",
+                body: "Текст",
+                footer: "Все права защищены",
+                data: "март 2020 года",
+            },
+            show: function () {
+                document.write("<p>Header:" + this.header + "<br>");
+                document.write("<p>Body:" + this.body + "<br>");
+                document.write("<p>Application:" + this.application.header + "<br>");
+                document.write("<p>Data:" + this.application.data + "<br>");
+            },
+            textBody: function (body) {
+                this.body = body;
+            }
+        }
+        doc.show();
+        doc.textBody("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+        doc.show();
+    </script>
+    <!-- Конструктор -->
+    <!-- Разработайте функцию-конструктор, которая будет создавать объект Human(человек) 
+        создайте массив объектов и реализуйте функцию, которая будет сортировать элементы массива 
+        по значению свойства Age по возрастанию или по убыванию. -->
+    <script>
+        function Human(name, age) {
+            this.firstname = name;
+            this.age = age;
+            this.welcome = function () {
+                document.write("<p>Welcome," + name + "!" + "Nice to meet you!" + "<br>");
+            }
+        }
+        var a = new Human("Anna", 21);
+        var b = new Human("John", 35);
+        var c = new Human("Weddy", 8);
+
+        a.welcome();
+        b.welcome();
+
+        var Mas = [a, b, c];
+        for (var i = 0; i < Mas.length; i++) {
+            document.write("Данные в массиве: " + Mas[i].firstname + " | " + Mas[i].age + "<br />");
+        }
+
+        function SortByAge(array, order) {
+            if (order == "asc") {
+                document.write("Самый взрослый человек:" + "<br />");
+                var maxValue = Number.NEGATIVE_INFINITY;
+
+                var maxVname = "";
+
+                for (var i = 0; i < array.length; i++) {
+                    if (array[i].age > maxValue) {
+                        maxValue = array[i].age;
+                        maxVname = array[i].firstname;
+                    }
+                }
+                return document.write("Имя: " + maxVname + "<br />" + " Возраст: " + maxValue + "<br>");
+
+            } else if (order == "desc") {
+                document.write("Cамый младший кандидат!" + "<br />");
+                var minVelue = Number.POSITIVE_INFINITY;
+                var minVname = "";
+                for (var i = 0; i < array.length; i++) {
+                    if (array[i].age < minVelue) {
+                        minVelue = array[i].age;
+                        minVname = array[i].firstname;
+
+                    }
+
+                }
+
+                return document.write("Имя: " + minVname + "<br />" + " Возраст: " + minVelue);;
+
+            } else {
+
+                document.write("error!");
+
+            }
+
+        };
+        SortByAge(Mas, 'asc');
+        SortByAge(Mas, 'desc');
+
+    </script>
+    <script>
+        function Human(name, age, lastname, male) {
+            this.name = name;
+            this.lastname = lastname;
+            this.age = age;
+            this.male = male;
+            this.welcome = function () {
+                document.write(`<br> Информация о человеке:${this.name},${this.lastname},${this.age},${this.male} <br>`);
+            }
+            this.direc = function () {
+                if (male == 'female') {
+                    document.write("Женская стать" + "<br>");
+                }
+                else {
+                    document.write("Мужская стать" + "<br>");
+                }
+            }
+            this.othername = function (lastname) {
+                this.lastname = lastname;
+            }
+        }
+
+        var a = new Human('Anna', 'Kovalchuk', 21, 'female');
+        var b = new Human('Alina', 'Korol', 16, 'female');
+        var c = new Human('Ivan', 'Novacov', 32, 'male');
+        var d = new Human('Nikki', 'Terechenko', 56, 'male');
+
+        a.welcome();
+        a.direc();
+        a.young();
+        b.welcome();
+        b.direc();
+        b.young();
+        b.othername("Denesenko");
+        b.welcome();
+        c.welcome();
+        c.direc();
+        c.young();
+        d.welcome();
+        d.direc();
+        d.young();
+
+
+    </script>
+    <!-- Class work -->
+    <script>
+        var a = prompt("Введите валюту:", "например:bitcoin,ethereum,stellar");
+        var criptomoney = {
+            name: "Anna",
+            show: function () {
+                if (a == "bitcoin") {
+                    document.write(`Добрый день, ${this.name}! <br> На вашем счету осталось ${this.bitcoin.moneyb},если вы сегодня продадите их то, получите ${this.bitcoin.moneyb * this.bitcoin.kyrs} грн.`);
+                }
+                else if (a == "stellar") {
+                    document.write(`Добрый день, ${this.name}! <br> На вашем счету осталось ${this.stellar.moneyb},если вы сегодня продадите их то, получите ${this.stellar.moneyb * this.stellar.kyrs} грн.`);
+                }
+                else if (a == "ethereum") {
+                    document.write(`Добрый день, ${this.name}! <br> На вашем счету осталось ${this.ethereum.moneyb},если вы сегодня продадите их то, получите ${this.ethereum.moneyb * this.ethereum.kyrs} грн.`);
+                }
+                else {
+                    document.write("Такого значения нет");
+                }
+            },
+            bitcoin: {
+                name: "Bitcoin",
+                logo: "https://s2.coinmarketcap.com/static/img/coins/32x32/1.png",
+                moneyb: 2,
+                kyrs: 5363.85,
+            },
+
+            ethereum: {
+                name: "Ethereum",
+                logo: "https://s2.coinmarketcap.com/static/img/coins/32x32/1027.png",
+                moneyb: 3,
+                kyrs: 127.67,
+            },
+            stellar: {
+                name: "Stellar",
+                logo: "https://s2.coinmarketcap.com/static/img/coins/32x32/512.png",
+                moneyb: 4,
+                kyrs: 0.038253,
+            }
+        };
+        criptomoney.show();
+
+    </script>
+    <script>
+        function Calculator() {
+
+            // Method
+            this.read = function () {
+                this.a = +prompt("Введите первое число:");
+                this.b = +prompt("Введите второе число:");
+            };
+            this.sum = function () {
+                alert(this.a + this.b);
+
+            };
+            this.mul = function () {
+                alert(this.a * this.b);
+
+            };
+        }
+        let calculator = new Calculator();
+        calculator.read();
+        calculator.sum();
+        calculator.mul();
+    </script>
+</body>
+
+</html>
