@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Пример 1 -->
+    <script>
+        const words = ["программа", "макака", "прекрасный", "оладушек"];  // Выбираем случайное слово
+        const word = words[Math.floor(Math.random() * words.length)];  // Создаем итоговый массив  
+        const answerArray = [];
+        for (let i = 0; i < word.length; i++) {
+            answerArray[i] = "_";
+        }
+        let remainingLetters = word.length;
+        // Игровой цикл 
+        while (remainingLetters > 0) {
+            // Показываем состояние игры  
+            alert(answerArray.join(" "));
+
+            // Запрашиваем вариант ответа   
+            const guess = prompt("Угадайте букву, или нажмите Отмена для выхода из игры.");
+            if (guess === null) {
+                // Выходим из игрового цикла      
+                break;
+            }
+            else if (guess.length !== 1) {
+                alert("Пожалуйста, введите одиночную букву.");
+            }
+            else {
+                // Обновляем состояние игры      
+                for (let j = 0; j < word.length; j++) {
+                    if (word[j] === guess) {
+                        answerArray[j] = guess;
+                        remainingLetters--;
+                    }
+                }
+            }
+            // Конец игрового цикла  
+        }
+        // Отображаем ответ и поздравляем игрока  
+
+        alert(answerArray.join(" "));
+        alert(`Отлично! Было загадано слово  + ${word}`);
+
+
+    </script>
+
+    <script>
+        // Пример 2
+
+        function createNewUser() {
+            this.userName = prompt('Enter you name: ', '');
+            this.userLastName = prompt('Enter you second name', '');
+            this.birthday = prompt('Введите ваш год рождения:');
+        }
+        createNewUser.prototype.getLogin = function () {
+            let newLogin = this.userName.charAt(0).toLowerCase() + this.userLastName.toLowerCase();
+            return newLogin;
+        }
+        createNewUser.prototype.getAge = function () {
+            return 2020 - this.birthday;
+
+        }
+        createNewUser.prototype.getPassword = function () {
+            let newPassword = this.userName.charAt(0).toUpperCase() + this.userLastName.toLowerCase() + this.birthday;
+            return newPassword;
+        }
+
+
+
+        let newUserObj = new createNewUser();
+        alert(`Your login is: ${newUserObj.getLogin()}`);
+        alert(`Your age is: ${newUserObj.getAge()} `);
+        alert(`Your password is: ${newUserObj.getPassword()}`);
+
+    </script>
+    <script>
+        const arr = ['terry', 'did', 23, 'red', 45, null];
+        let arrtype = [];
+        function filterBy(arr) {
+
+            for (let i = 0; i < arr.length; i++) {
+                if (typeof arr[i] == 'string') {
+                    continue;
+                }
+                else {
+                    arrtype.push(arr[i]);
+                }
+            }
+
+            console.log(arr);
+
+            console.log(arrtype);
+        }
+        filterBy(arr);
+    </script>
+    <!-- Создать отдельный файл на этот пример -->
+    <script>
+        const createNewChild = () => {
+            const list = document.getElementById('list');
+            const item = document.createElement('div');
+            item.innerHTML = 'Ever text';
+            list.appendChild(item);
+        }
+        const removeLastChild = () => {
+            const node = document.getElementById('list');
+            while (node.firstChild) {
+                node.removeChild(node.firstChild);
+            }
+        }
+    </script>
+
+    <input onclick="createNewChild()" type="button" value="Create div ">
+    <input onclick="removeLastChild()" type="button" value="Delete text">
+    <div id="list"></div>
+</body>
+
+
+</html>
