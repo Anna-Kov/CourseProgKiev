@@ -1,0 +1,19 @@
+.item{
+        color: white;
+        list-style: none;
+        font-size: 24px;
+        margin-right: 76px;
+}
+.head_menu{
+    display:flex;
+    justify-content: center;
+    background: black;
+    padding:15px;
+}
+.item:hover{
+    background:black;
+    /* padding:15px; */
+}
+.head_menu:hover{
+    background:#29424E;
+}

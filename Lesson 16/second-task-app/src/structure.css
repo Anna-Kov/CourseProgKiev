@@ -1,0 +1,10 @@
+*{
+    margin:0;
+    padding:0;
+}
+.body{
+    padding:0 60px 0 60px;
+    font-family: myriad-pro, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
